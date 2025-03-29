@@ -33,20 +33,15 @@ modelNNPGR = keras.models.Sequential([
     keras.layers.Dense(1, activation="sigmoid")  # probability of action = 0 (left)
 ])
 
+```
 Training is done using REINFORCE:
-
 - Actions are sampled stochastically.
-
 - Policy gradients are calculated using Monte Carlo returns.
-
 - Gradients are normalized across episodes and applied via Adam optimizer.
-
 
 
 Evaluation Metrics
 ![image](https://github.com/user-attachments/assets/c5543add-7bf3-4bd7-a584-879a22e37b45)
-
-
 Note: Although REINFORCE is a stochastic policy method, the trained agent became highly confident in its decisions (low entropy) due to convergence in the CartPole task.
 
 📹 Visualizations
@@ -70,3 +65,29 @@ video/: Optional folder for rendered episode recordings.
 
 Conclusion
 The vanilla REINFORCE implementation with a neural network proved to be simple yet highly effective, outperforming several policy gradient variants and even A2C in this environment. Its success demonstrates the power of policy gradient methods when paired with a stable architecture and proper reward normalization.
+
+
+
+Requirements
+```bash
+pip install tensorflow gym[box2d] stable-baselines3 matplotlib
+```
+
+Run
+```bash
+python train_reinforce.py
+```
+
+Evaluate
+```bash
+python evaluate.py
+```
+
+Compare and Plot:
+```bash
+python plot_comparison.py
+```
+
+
+NTU SC3000 Artificial Intelligence, SCS4 - Reinforcement Learning Assignment
+
